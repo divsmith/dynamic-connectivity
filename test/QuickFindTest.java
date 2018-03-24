@@ -64,4 +64,11 @@ class QuickFindTest {
         QuickFind qf = this.runFile("test/tinyUF.txt");
         Assertions.assertTrue(qf.connected(4, 9));
     }
+
+    @Test
+    void tinyUF_not_connected()
+    {
+        QuickFind qf = this.runFile("test/tinyUF.txt");
+        Assertions.assertFalse(qf.connected(2, 9));
+    }
 }
