@@ -2,7 +2,7 @@ public class Main {
 
     public static void main(String[] args) {
         int N = StdIn.readInt();
-        //UnionFindInterface uf = new UnionFindInterface();
+        UnionFindInterface uf = new QuickFind(10);
 
         while (!StdIn.isEmpty())
         {
