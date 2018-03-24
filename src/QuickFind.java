@@ -17,13 +17,19 @@ public class QuickFind implements UnionFindInterface {
 
     public void union(int p, int q)
     {
-
+        for (int i = 0; i < this.id.length; i++)
+        {
+            if (this.id[i] == p)
+            {
+                this.id[i] = q;
+            }
+        }
     }
 
 
     public boolean connected(int p, int q)
     {
-        return false;
+        return this.id[p] == this.id[q];
     }
 
 

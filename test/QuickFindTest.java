@@ -13,4 +13,19 @@ class QuickFindTest {
         QuickFind qf = new QuickFind(10);
         Assertions.assertEquals(10, qf.count());
     }
+
+    @Test
+    void union_not_connected()
+    {
+        QuickFind qf = new QuickFind(4);
+        Assertions.assertFalse(qf.connected(1, 2));
+    }
+
+    @Test
+    void union_connected()
+    {
+        QuickFind qf = new QuickFind(4);
+        qf.union(1, 2);
+        Assertions.assertTrue(qf.connected(1, 2));
+    }
 }
