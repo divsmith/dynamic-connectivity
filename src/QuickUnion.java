@@ -17,12 +17,15 @@ public class QuickUnion implements UnionFindInterface {
 
     public void union(int p, int q)
     {
-
+        this.id[p] = q;
     }
 
     public boolean connected(int p, int q)
     {
-        return false;
+        int pParent = parent(p);
+        int qParent = parent(q);
+
+        return pParent == qParent;
     }
 
     public int find(int p)
@@ -33,5 +36,15 @@ public class QuickUnion implements UnionFindInterface {
     public int count()
     {
         return this.id.length;
+    }
+
+    private int parent(int i)
+    {
+        while (this.id[i] != i)
+        {
+            i = this.id[i];
+        }
+
+        return i;
     }
 }
