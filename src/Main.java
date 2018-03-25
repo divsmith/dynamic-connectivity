@@ -18,7 +18,6 @@ public class Main {
             if (!uf.connected(p, q))
             {
                 uf.union(p, q);
-                System.out.println(p + " " + q);
             }
         }
     }
