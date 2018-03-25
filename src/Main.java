@@ -11,7 +11,7 @@ public class Main {
         System.out.println(N);
 
         long start = System.currentTimeMillis();
-        UnionFindInterface uf = new QuickUnion(N);
+        UnionFindInterface uf = new WeightedQuickUnion(N);
 
         while (scanner.hasNextInt())
         {
