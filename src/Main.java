@@ -25,6 +25,12 @@ public class Main {
 
         long end = System.currentTimeMillis();
         double time = (end - start) / 1000;
-        System.out.println("Time: " + time);
+        System.out.println("Union Time: " + time);
+
+        start = System.currentTimeMillis();
+        Boolean connected = uf.connected(0, N - 1);
+        end = System.currentTimeMillis();
+        time = (end - start) / 1000;
+        System.out.println("Find Time: " + time);
     }
 }
