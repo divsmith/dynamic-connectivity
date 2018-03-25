@@ -1,17 +1,24 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class Main {
 
-    public static void main(String[] args) {
-        int N = StdIn.readInt();
-        UnionFindInterface uf = new QuickFind(10);
+    public static void main(String[] args) throws FileNotFoundException{
 
-        while (!StdIn.isEmpty())
+        Scanner scanner = new Scanner(new File(args[0]));
+        int N = scanner.nextInt();
+        System.out.println(N);
+        UnionFindInterface uf = new QuickFind(N);
+
+        while (scanner.hasNextInt())
         {
-            int p = StdIn.readInt();
-            int q = StdIn.readInt();
+            int p = scanner.nextInt();
+            int q = scanner.nextInt();
             if (!uf.connected(p, q))
             {
                 uf.union(p, q);
-                StdOut.println(p + " " + q);
+                System.out.println(p + " " + q);
             }
         }
     }
