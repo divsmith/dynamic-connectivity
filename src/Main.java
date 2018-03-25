@@ -27,8 +27,18 @@ public class Main {
         double time = (end - start) / 1000;
         System.out.println("Union Time: " + time);
 
+
+        scanner = new Scanner(new File(args[0]));
+        N = scanner.nextInt();
         start = System.currentTimeMillis();
-        Boolean connected = uf.connected(0, N - 1);
+
+        while (scanner.hasNextInt())
+        {
+            int p = scanner.nextInt();
+            int q = scanner.nextInt();
+            uf.connected(p, q);
+        }
+
         end = System.currentTimeMillis();
         time = (end - start) / 1000;
         System.out.println("Find Time: " + time);
