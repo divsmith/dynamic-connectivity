@@ -1,23 +1,38 @@
 /**
  * Created by parker on 3/24/18.
  */
-public class QuickUnion implements UnionFindInterface {
+public class WeightedQuickUnion implements UnionFindInterface {
 
     private int[] id;
+    private int[] size;
 
-    public QuickUnion(int N)
+    public WeightedQuickUnion(int N)
     {
         this.id = new int[N];
+        this.size = new int[N];
 
         for (int i = 0; i < N; i++)
         {
             this.id[i] = i;
+            this.size[i] = 1;
         }
     }
 
     public void union(int p, int q)
     {
-        this.id[parent(p)] = parent(q);
+        int r = parent(p);
+        int s = parent(q);
+
+        if (this.size[r] > this.size[s])
+        {
+            this.id[s] = r;
+            this.size[r] += this.size[s];
+        }
+        else
+        {
+            this.id[r] = s;
+            this.size[s] += this.size[r];
+        }
     }
 
     public boolean connected(int p, int q)
