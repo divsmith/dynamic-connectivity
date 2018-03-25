@@ -17,7 +17,7 @@ public class QuickUnion implements UnionFindInterface {
 
     public void union(int p, int q)
     {
-        this.id[p] = q;
+        this.id[parent(p)] = parent(q);
     }
 
     public boolean connected(int p, int q)
