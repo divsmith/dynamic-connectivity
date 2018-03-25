@@ -57,6 +57,7 @@ public class WeightedQuickUnion implements UnionFindInterface {
     {
         while (this.id[i] != i)
         {
+            this.id[i] = this.id[this.id[i]];
             i = this.id[i];
         }
 
